@@ -1,4 +1,5 @@
 const myLibrary = [];
+const library = document.getElementById("library");
 
 function Book(title, author, pages, read) {
   if (!new.target) {
@@ -19,4 +20,11 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+}
+
+function display() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    const card = document.createElement("div");
+    library.appendChild(card);
+  }
 }
