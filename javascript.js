@@ -5,13 +5,15 @@ const newBook = document.getElementById("new");
 const open = document.getElementById("open");
 const popup = document.getElementById("popup");
 const close = document.getElementById("close");
+const form = document.getElementById("bookForm");
 
 open.addEventListener("click", () => {
   popup.classList.add("open");
 });
 
-close.addEventListener("click", () => {
+close.addEventListener("click", (event) => {
   popup.classList.remove("open");
+  event.preventDefault();
 });
 
 function Book(title, author, pages, read) {
@@ -79,3 +81,17 @@ addBookToLibrary("Ficciones", "Jorge Luis Borges", 174, true);
 addBookToLibrary("The Illiad", "Homer", 430, false);
 
 display();
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").value;
+
+  addBookToLibrary(title, author, pages, read);
+  display();
+
+  popup.classList.remove("open");
+});
