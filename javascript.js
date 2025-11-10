@@ -27,13 +27,15 @@ function display() {
 
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
+    card.setAttribute("class", "card");
+
     const title = document.createElement("span");
     const author = document.createElement("span");
     const pages = document.createElement("span");
 
     title.textContent = myLibrary[i].title;
-    author.textContent = myLibrary[i].author;
-    pages.textContent = myLibrary[i].pages;
+    author.textContent = "by " + myLibrary[i].author;
+    pages.textContent = myLibrary[i].pages + " pages";
 
     card.appendChild(title);
     card.appendChild(author);
