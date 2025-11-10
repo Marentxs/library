@@ -32,14 +32,22 @@ function display() {
     const title = document.createElement("span");
     const author = document.createElement("span");
     const pages = document.createElement("span");
+    const status = document.createElement("button");
 
-    title.textContent = myLibrary[i].title;
+    title.textContent = "'" + myLibrary[i].title + "'";
     author.textContent = "by " + myLibrary[i].author;
     pages.textContent = myLibrary[i].pages + " pages";
+    status.textContent = myLibrary[i].read ? "read" : "not read";
+
+    status.addEventListener("click", () => {
+      myLibrary[i].read = !myLibrary[i].read;
+      display();
+    });
 
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
+    card.appendChild(status);
 
     library.appendChild(card);
   }

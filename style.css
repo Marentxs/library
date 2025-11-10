@@ -52,8 +52,15 @@ body {
   padding: 2rem;
 }
 
-#library {
+.container {
   display: flex;
+  justify-content: center;
+  width: 80rem;
+}
+
+#library {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   justify-content: center;
 }
