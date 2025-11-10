@@ -9,6 +9,8 @@ const form = document.getElementById("bookForm");
 
 open.addEventListener("click", () => {
   popup.classList.add("open");
+
+  form.reset();
 });
 
 close.addEventListener("click", (event) => {
