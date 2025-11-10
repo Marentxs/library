@@ -30,11 +30,13 @@ function display() {
     card.setAttribute("class", "card");
 
     const title = document.createElement("span");
+    const remove = document.createElement("button");
     const author = document.createElement("span");
     const pages = document.createElement("span");
     const status = document.createElement("button");
 
     title.textContent = "'" + myLibrary[i].title + "'";
+    remove.textContent = "X";
     author.textContent = "by " + myLibrary[i].author;
     pages.textContent = myLibrary[i].pages + " pages";
     status.textContent = myLibrary[i].read ? "read" : "not read";
@@ -44,7 +46,13 @@ function display() {
       display();
     });
 
+    remove.addEventListener("click", () => {
+      myLibrary.splice(i, 1);
+      display();
+    });
+
     card.appendChild(title);
+    card.appendChild(remove);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(status);
