@@ -23,8 +23,28 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function display() {
+  library.innerHTML = "";
+
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
+    const title = document.createElement("span");
+    const author = document.createElement("span");
+    const pages = document.createElement("span");
+
+    title.textContent = myLibrary[i].title;
+    author.textContent = myLibrary[i].author;
+    pages.textContent = myLibrary[i].pages;
+
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+
     library.appendChild(card);
   }
 }
+
+addBookToLibrary("The Martian", "Andy Weir", 384, true);
+addBookToLibrary("Ficciones", "Jorge Luis Borges", 174, true);
+addBookToLibrary("The Illiad", "Homer", 430, false);
+
+display();
