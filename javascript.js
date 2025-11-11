@@ -49,6 +49,9 @@ function display() {
     const title = document.createElement("span");
     const author = document.createElement("span");
     const pages = document.createElement("span");
+
+    const buttons = document.createElement("div");
+    buttons.classList.add("buttons");
     const status = document.createElement("button");
     const remove = document.createElement("button");
 
@@ -58,7 +61,7 @@ function display() {
 
     author.textContent = "by " + myLibrary[i].author;
     pages.textContent = myLibrary[i].pages + " pages";
-    status.textContent = myLibrary[i].read ? "read" : "not read";
+    status.textContent = myLibrary[i].read ? "Read" : "Not read";
     status.classList.toggle("green", myLibrary[i].read);
 
     status.addEventListener("click", () => {
@@ -74,16 +77,18 @@ function display() {
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
-    card.appendChild(status);
-    card.appendChild(remove);
+    card.appendChild(buttons);
+
+    buttons.appendChild(status);
+    buttons.appendChild(remove);
 
     library.appendChild(card);
   }
 }
 
 addBookToLibrary("The Martian", "Andy Weir", 384, true);
-addBookToLibrary("Ficciones", "Jorge Luis Borges", 174, true);
-addBookToLibrary("The Illiad", "Homer", 430, false);
+addBookToLibrary("Ficciones", "Jorge Luis Borges", 174, false);
+addBookToLibrary("The Illiad", "Homer", 430, true);
 
 display();
 
