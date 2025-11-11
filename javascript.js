@@ -54,9 +54,12 @@ function display() {
 
     title.textContent = "'" + myLibrary[i].title + "'";
     remove.textContent = "X";
+    remove.id = "close";
+
     author.textContent = "by " + myLibrary[i].author;
     pages.textContent = myLibrary[i].pages + " pages";
     status.textContent = myLibrary[i].read ? "read" : "not read";
+    status.classList.toggle("green", myLibrary[i].read);
 
     status.addEventListener("click", () => {
       myLibrary[i].read = !myLibrary[i].read;
