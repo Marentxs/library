@@ -53,6 +53,7 @@ body {
   margin: 4rem 30%;
   padding: 2rem;
   background-color: hsl(30, 5%, 15%);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .title {
@@ -66,7 +67,7 @@ button {
   padding: 1rem 2rem;
   background-color: hsl(20, 0%, 35%);
   color: white;
-  border: 5px solid hsl(30, 5%, 20%);
+  border: 4px solid hsl(30, 5%, 20%);
   cursor: pointer;
 }
 
@@ -96,9 +97,10 @@ button:active {
   display: flex;
   flex-direction: column;
   width: 16rem;
-  line-height: 2;
   background-color: hsl(30, 5%, 15%);
   padding: 2rem;
+  gap: 0.8em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .popup {
@@ -185,4 +187,9 @@ input[type="checkbox"] {
 
 .buttons button {
   padding: 1rem 0;
+}
+
+#title {
+  font-size: 1.6rem;
+  font-style: italic;
 }

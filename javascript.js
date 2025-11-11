@@ -54,10 +54,11 @@ function display() {
     buttons.classList.add("buttons");
     const status = document.createElement("button");
     const remove = document.createElement("button");
+    remove.id = "close";
 
     title.textContent = "'" + myLibrary[i].title + "'";
+    title.id = "title";
     remove.textContent = "X";
-    remove.id = "close";
 
     author.textContent = "by " + myLibrary[i].author;
     pages.textContent = myLibrary[i].pages + " pages";
