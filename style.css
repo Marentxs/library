@@ -84,6 +84,7 @@ button:active {
 .container {
   display: flex;
   justify-content: center;
+  padding-bottom: 4rem;
 }
 
 #library {
@@ -192,4 +193,25 @@ input[type="checkbox"] {
 #title {
   font-size: 1.6rem;
   font-style: italic;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  background-color: hsl(30, 5%, 15%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: hsl(195, 100%, 35%);
 }
