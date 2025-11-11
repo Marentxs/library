@@ -154,27 +154,27 @@ input[type="checkbox"] {
 }
 
 #close {
-  background-color: hsl(0, 60%, 25%);
+  background-color: hsl(0, 50%, 25%);
 }
 
 #close:hover {
-  background-color: hsl(0, 60%, 30%);
+  background-color: hsl(0, 50%, 30%);
 }
 
 #close:active {
-  background-color: hsl(0, 60%, 35%);
+  background-color: hsl(0, 50%, 35%);
 }
 
 .green {
-  background-color: hsl(135, 70%, 25%);
+  background-color: hsl(135, 50%, 25%);
 }
 
 .green:hover {
-  background-color: hsl(135, 70%, 30%);
+  background-color: hsl(135, 50%, 30%);
 }
 
 .green:active {
-  background-color: hsl(135, 70%, 35%);
+  background-color: hsl(135, 50%, 35%);
 }
 
 .buttons {
