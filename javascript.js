@@ -1,4 +1,3 @@
-const myLibrary = [];
 const library = document.getElementById("library");
 const newBook = document.getElementById("new");
 
@@ -18,25 +17,31 @@ close.addEventListener("click", (event) => {
   event.preventDefault();
 });
 
-function Book(title, author, pages, read) {
-  if (!new.target) {
-    throw Error("You must use the 'new operator to call the constructor");
+class Book {
+  constructor(title, author, pages, read) {
+    if (!new.target) {
+      throw Error("You must use the 'new operator to call the constructor");
+    }
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
+
+  info() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${
       this.read ? "read" : "not read"
     }`;
-  };
+  }
 }
 
-function addBookToLibrary(title, author, pages, read) {
-  const newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
+class Library {
+  #myLibrary = [];
+
+  addBook(title, author, pages, read) {
+    this.#myLibrary.push(book);
+  }
 }
 
 function display() {
