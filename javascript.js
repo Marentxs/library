@@ -39,62 +39,65 @@ class Book {
 class Library {
   #myLibrary = [];
 
-  addBook(title, author, pages, read) {
+  addBook(book) {
     this.#myLibrary.push(book);
   }
-}
 
-function display() {
-  library.innerHTML = "";
+  display() {
+    library.innerHTML = "";
 
-  for (let i = 0; i < myLibrary.length; i++) {
-    const card = document.createElement("div");
-    card.setAttribute("class", "card");
+    for (let i = 0; i < this.#myLibrary.length; i++) {
+      const card = document.createElement("div");
+      card.setAttribute("class", "card");
 
-    const title = document.createElement("span");
-    const author = document.createElement("span");
-    const pages = document.createElement("span");
+      const title = document.createElement("span");
+      const author = document.createElement("span");
+      const pages = document.createElement("span");
 
-    const buttons = document.createElement("div");
-    buttons.classList.add("buttons");
-    const status = document.createElement("button");
-    const remove = document.createElement("button");
-    remove.id = "close";
+      const buttons = document.createElement("div");
+      buttons.classList.add("buttons");
+      const status = document.createElement("button");
+      const remove = document.createElement("button");
+      remove.id = "close";
 
-    title.textContent = "'" + myLibrary[i].title + "'";
-    title.id = "title";
-    remove.textContent = "X";
+      title.textContent = "'" + this.#myLibrary[i].title + "'";
+      title.id = "title";
+      remove.textContent = "X";
 
-    author.textContent = "by " + myLibrary[i].author;
-    pages.textContent = myLibrary[i].pages + " pages";
-    status.textContent = myLibrary[i].read ? "Read" : "Not read";
-    status.classList.toggle("green", myLibrary[i].read);
+      author.textContent = "by " + this.#myLibrary[i].author;
+      pages.textContent = this.#myLibrary[i].pages + " pages";
+      status.textContent = this.#myLibrary[i].read ? "Read" : "Not read";
+      status.classList.toggle("green", this.#myLibrary[i].read);
 
-    status.addEventListener("click", () => {
-      myLibrary[i].read = !myLibrary[i].read;
-      display();
-    });
+      status.addEventListener("click", () => {
+        this.#myLibrary[i].read = !this.#myLibrary[i].read;
+        this.display();
+      });
 
-    remove.addEventListener("click", () => {
-      myLibrary.splice(i, 1);
-      display();
-    });
+      remove.addEventListener("click", () => {
+        this.#myLibrary.splice(i, 1);
+        this.display();
+      });
 
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(buttons);
+      card.appendChild(title);
+      card.appendChild(author);
+      card.appendChild(pages);
+      card.appendChild(buttons);
 
-    buttons.appendChild(status);
-    buttons.appendChild(remove);
+      buttons.appendChild(status);
+      buttons.appendChild(remove);
 
-    library.appendChild(card);
+      library.appendChild(card);
+    }
   }
 }
 
-addBookToLibrary("The Martian", "Andy Weir", 384, true);
-addBookToLibrary("Ficciones", "Jorge Luis Borges", 174, false);
-addBookToLibrary("The Illiad", "Homer", 430, true);
+Book("The Martian", "Andy Weir", 384, true);
+Book("Ficciones", "Jorge Luis Borges", 174, false);
+Book("The Illiad", "Homer", 430, true);
+addBook("The Martian");
+addBook("Ficciones");
+addBook("The Illiad");
 
 display();
 
