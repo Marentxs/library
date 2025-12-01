@@ -1,21 +1,4 @@
 const library = document.getElementById("library");
-const newBook = document.getElementById("new");
-
-const open = document.getElementById("open");
-const popup = document.getElementById("popup");
-const close = document.getElementById("close");
-const form = document.getElementById("bookForm");
-
-open.addEventListener("click", () => {
-  popup.classList.add("open");
-
-  form.reset();
-});
-
-close.addEventListener("click", (event) => {
-  popup.classList.remove("open");
-  event.preventDefault();
-});
 
 class Book {
   constructor(title, author, pages, read) {
@@ -92,25 +75,45 @@ class Library {
   }
 }
 
-Book("The Martian", "Andy Weir", 384, true);
-Book("Ficciones", "Jorge Luis Borges", 174, false);
-Book("The Illiad", "Homer", 430, true);
-addBook("The Martian");
-addBook("Ficciones");
-addBook("The Illiad");
+class Controller {
+  constructor(library) {
+    this.library = library;
+    this.open = document.getElementById("open");
+    this.popup = document.getElementById("popup");
+    this.close = document.getElementById("close");
+    this.form = document.getElementById("bookForm");
 
-display();
+    this.open.addEventListener("click", () => {
+      this.popup.classList.add("open");
+      this.form.reset();
+    });
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+    this.close.addEventListener("click", (event) => {
+      this.popup.classList.remove("open");
+      event.preventDefault();
+    });
 
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").checked;
+    this.form.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-  addBookToLibrary(title, author, pages, read);
-  display();
+      const title = document.getElementById("title").value;
+      const author = document.getElementById("author").value;
+      const pages = document.getElementById("pages").value;
+      const read = document.getElementById("read").checked;
 
-  popup.classList.remove("open");
-});
+      this.library.addBook(new Book(title, author, pages, read));
+      this.library.display();
+
+      this.popup.classList.remove("open");
+    });
+  }
+}
+
+const testLib = new Library();
+const controller = new Controller(testLib);
+
+testLib.addBook(new Book("The Martian", "Andy Weir", 384, true));
+testLib.addBook(new Book("Ficciones", "Jorge Luis Borges", 174, false));
+testLib.addBook(new Book("The Illiad", "Homer", 430, true));
+
+testLib.display();
