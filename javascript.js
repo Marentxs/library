@@ -96,10 +96,28 @@ class Controller {
     this.form.addEventListener("submit", (event) => {
       event.preventDefault();
 
+      const message = document.getElementById("message");
       const title = document.getElementById("title").value;
       const author = document.getElementById("author").value;
       const pages = document.getElementById("pages").value;
       const read = document.getElementById("read").checked;
+
+      message.innerHTML = "";
+
+      if (title.trim() === "") {
+        message.innerHTML = "What's the name of the book?";
+        return false;
+      }
+
+      if (author.trim() === "") {
+        message.innerHTML = "Who wrote it?";
+        return false;
+      }
+
+      if (pages.trim() === "") {
+        message.innerHTML = "How long was this book?";
+        return false;
+      }
 
       this.library.addBook(new Book(title, author, pages, read));
       this.library.display();
