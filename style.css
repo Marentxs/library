@@ -151,6 +151,12 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.input-error {
+  background-color: hsl(0, 0%, 70%);
+  border: 3px solid hsl(0, 50%, 45%);
+  transition: all 0.2s ease-in-out;
+}
+
 .check {
   display: flex;
   align-items: center;
